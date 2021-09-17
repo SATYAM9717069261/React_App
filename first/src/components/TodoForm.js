@@ -3,10 +3,20 @@ import Todocontent from "./Todocontent.js";
 import React from "react";
 
 export default function TodoForm() {
-  const [form_data, set_form_data] = useState({
-    title: "",
-    Description: ""
-  });
+  const [form_data, set_form_data] = React.useState([
+    {
+      title: "",
+      Description: ""
+    }
+  ]);
+  function add() {
+    set_form_data((prev) => {
+      return prev.concat({
+        title: "",
+        Description: ""
+      })
+    })
+  }
   return (
     <>
       <div className="container">
@@ -20,12 +30,10 @@ export default function TodoForm() {
           </thead>
           <tbody className="border">
             {
-              form_data.map(data => {
-
-                <Todocontent />
+              form_data.map((data) => {
+                return <Todocontent />
               })
             }
-
           </tbody>
         </table>
       </div>
@@ -42,6 +50,4 @@ const btn_style = {
   margin: 12
 };
 
-function add() {
-  alert("call Sucessfull")
-}
+
