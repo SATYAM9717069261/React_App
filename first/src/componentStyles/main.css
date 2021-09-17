@@ -2,3 +2,37 @@
   background-color: bisque;
   text-align: center;
 }
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.marg {
+  margin: 10px;
+}
+.pad {
+  padding: 3px;
+}
+.container {
+  border: 2px solid;
+}
+.center {
+  align-content: center;
+  text-align: center;
+}
+.flex1 {
+  flex: 1;
+}
+span {
+  transform: rotate(180deg);
+  float: right;
+  margin-right: 12px;
+  font-size: x-large;
+  font-weight: 600;
+}
+.complete {
+  float: right;
+}
+.title-marg {
+  margin: 40px;
+  font-size: 20px;
+}
