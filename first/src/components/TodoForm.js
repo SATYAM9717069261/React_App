@@ -1,6 +1,12 @@
 import "../componentStyles/form.css";
 import Todocontent from "./Todocontent.js";
+import React from "react";
+
 export default function TodoForm() {
+  const [form_data, set_form_data] = useState({
+    title: "",
+    Description: ""
+  });
   return (
     <>
       <div className="container">
@@ -13,13 +19,19 @@ export default function TodoForm() {
             </tr>
           </thead>
           <tbody className="border">
-            <Todocontent />
+            {
+              form_data.map(data => {
+
+                <Todocontent />
+              })
+            }
+
           </tbody>
         </table>
       </div>
 
       <div className="container">
-        <button style={btn_style}>Add</button>
+        <button style={btn_style} onClick={add}>Add</button>
         <button style={btn_style}>Submit</button>
       </div>
     </>
@@ -29,3 +41,7 @@ const btn_style = {
   float: "right",
   margin: 12
 };
+
+function add() {
+  alert("call Sucessfull")
+}
