@@ -5,7 +5,7 @@ function Todos() {
     {
       id: 1,
       title: "Todo Title",
-      description: "Do Your Tack",
+      description: "Add Description Here",
       completed: false
     }
   ]);
@@ -14,7 +14,7 @@ function Todos() {
     let newtodo = {
       id: tododata.length + 1,
       title: "Todo Title",
-      description: "Do Your Tack me",
+      description: "Add Description Here",
       completed: false
     };
     modifydata((previoustodo) => {
@@ -24,25 +24,30 @@ function Todos() {
   function reset() {
     let resettodo = {
       id: 1,
-      title: "Todo1",
-      description: "Do Your Tack me",
+      title: "Todo Title",
+      description: "Add Description Here",
       completed: false
     };
     modifydata([resettodo]);
   }
-
-  function updatetodo(id, completedorNot) {
+  function completedtodo(id) {
     const update = tododata.map((data) =>
-      data.id === id ? { ...data, completed: completedorNot } : data
-    );
-    modifydata([update]);
+      data.id === id ? { ...data, completed: true } : data
+    )
+    modifydata(update);
+  }
+  const updatetodo = (id, updatedata) => {
+    const update = tododata.map((data) =>
+      data.id === id ? { ...data, updatedata } : data
+    )
+    modifydata(update);
   }
 
   return (
     <div style={style.flexCol}>
       <div style={style.todos}>
         {tododata.map((data) => {
-          return <Todo key={data.id} data={data} onUpdate={updatetodo} />;
+          return <Todo key={data.id} data={data} onUpdate={updatetodo} oncomplete={completedtodo} />;
         })}
       </div>
       <div style={style.flexRow}>

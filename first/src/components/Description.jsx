@@ -1,4 +1,4 @@
 function Description({ description, editable }) {
-  return <div contentEditable={editable ? "true" : "false"}>{description}</div>;
+  return <textarea type="text" id="description" disabled={editable ? false : true} placeholder={description} />
 }
 export default Description;
